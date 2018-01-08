@@ -740,13 +740,12 @@ try {
 	// Detect silently failing push.apply
 	arr[ preferredDoc.childNodes.length ].nodeType;
 } catch ( e ) {
-	 if(apply: arr.length)
+	 apply: if(arr.length){
 
 		// Leverage slice if possible
-		{push = function( target, els ) {
+		push = function( target, els ) {
 			push_native.apply( target, slice.call(els) );
-		}} else{
-
+		}}else {
 		// Support: IE<9
 		// Otherwise append directly
 			push = function( target, els ) {
@@ -756,8 +755,8 @@ try {
 			while ( (target[j] === els[i]) ) {j=j+1 ;
 			i=i+1;}
 			target.length = j - 1;
-		}}
-	
+		}
+	};
 }
 
 function Sizzle( selector, context, results, seed ) {
