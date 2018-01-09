@@ -25,7 +25,7 @@
 		// e.g. var jQuery = require("jquery")(window);
 		// See ticket #14549 for more info.		
 		if(global.document){ 
-			factory( global, true )} else{
+			factory( global, true );} else{
 			function toW( w ) {
 				if ( !w.document ) {
 					throw new Error( "jQuery requires a window with a document" );
@@ -135,7 +135,7 @@ jQuery.fn = jQuery.prototype = {
 		}
 
 		// Return just the one element from the set
-		 if(num < 0)  {return this[ num + this.length ]} else {return this[ num ];}
+		 if(num < 0)  {return this[ num + this.length ];} else {return this[ num ];}
 	},
 
 	// Take an array of elements and push it onto the stack
@@ -178,8 +178,8 @@ jQuery.fn = jQuery.prototype = {
 	eq: function( i ) {
 		var len = this.length,
 		 j = 0; 
-		     if( i < 0)  { j = +i +len} else { j = +i +0;}
-			 if(j >= 0 && j < len)  {return this.pushStack([ this[ j ] ])} else {return this.pushStack([])}		  
+		     if( i < 0)  { j = +i +len;} else { j = +i +0;}
+			 if(j >= 0 && j < len)  {return this.pushStack([ this[ j ] ]);} else {return this.pushStack([]);}		  
 	},
 	
 	end: function() {
@@ -230,21 +230,17 @@ jQuery.extend = jQuery.fn.extend = function() {
 				src = target[ name ];
 				copy = options[ name ];
 
-				// Prevent never-ending loop
-				if ( target === copy ) {
-					continue;
-				}
-
+				
 				// Recurse if we're merging plain objects or arrays
 				if ( deep && copy && ( jQuery.isPlainObject( copy ) ||
 					( copyIsArray === jQuery.isArray( copy ) ) ) ) {
 
 					if ( copyIsArray ) {
 						copyIsArray = false;
-						 if(src && jQuery.isArray( src ))  {clone = src} else {clone =[]};
+						 if(src && jQuery.isArray( src ))  {clone = src;} else {clone =[];}
 
 					} else {
-						 if(src && jQuery.isPlainObject( src )) {clone = src} else {clone = {};}
+						 if(src && jQuery.isPlainObject( src )) {clone = src;} else {clone = {};}
 					}
 
 					// Never move original objects, clone them
@@ -384,7 +380,7 @@ jQuery.extend( {
 	// Support: Android <=4.0 only
 	trim: function( text ) {
 		 if(text === null) 
-			 {return "" }else{
+			 {return "" ;}else{
 			( text + "" ).replace( rtrim, "" );}
 	},
 
@@ -407,7 +403,7 @@ jQuery.extend( {
 	},
 
 	inArray: function( elem, arr, i ) {
-		if(arr === null) {return -1} else {indexOf.call( arr, elem, i );}
+		if(arr === null) {return -1;} else {indexOf.call( arr, elem, i );}
 	},
 
 	// Support: Android <=4.0 only, PhantomJS 1 only
@@ -688,10 +684,10 @@ var i,
 		// Support: Firefox<24
 		// Workaround erroneous numeric interpretation of +"0x"
 		 if(high !== high || escapedWhitespace)
-				 {return escaped }else{
+				 {return escaped;}else{
 			if(high < 0) {
 				// BMP codepoint
-					return String.fromCharCode( high + 0x10000 ) }else {
+					return String.fromCharCode( high + 0x10000 ); }else {
 				// Supplemental Plane codepoint (surrogate pair)
 						return String.fromCharCode( high >> 10 | 0xD800, high & 0x3FF | 0xDC00 );}}
 	},
@@ -764,7 +760,7 @@ function Sizzle( selector, context, results, seed ) {
 		newContext = context && context.ownerDocument,
 	    nodeType = 0;
 		// nodeType defaults to 9, since context defaults to document
-		 if(context)  {nodeType =context.nodeType} else  {nodeType = 9};
+		 if(context)  {nodeType =context.nodeType;} else  {nodeType = 9;}
 
 	results = results || [];
 
@@ -981,7 +977,7 @@ function siblingCheck( a, b ) {
 		}
 	}
 
-	 if(a) {return 1} else {return -1};
+	 if(a) {return 1;} else {return -1;}
 }
 
 /**
@@ -1116,7 +1112,7 @@ isXML = Sizzle.isXML = function( elem ) {
 setDocument = Sizzle.setDocument = function( node ) {
 	var hasCompare, subWindow,
 	doc;
-		 if(node) {doc = node.ownerDocument || node} else {doc = preferredDoc};
+		 if(node) {doc = node.ownerDocument || node} else {doc = preferredDoc;}
 
 	// Return early if doc is invalid or already selected
 	if ( doc === document || doc.nodeType !== 9 || !doc.documentElement ) {
@@ -1186,7 +1182,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		Expr.find["ID"] = function( id, context ) {
 			if ( typeof context.getElementById !== "undefined" && documentIsHTML ) {
 				var elem = context.getElementById( id );
-				 if(elem)  {return[ elem ]} else {return []};
+				 if(elem)  {return[ elem ];} else {return [];}
 			}
 		};
 	} else {
@@ -1397,7 +1393,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// As in, an element does not contain itself
 	 if(hasCompare || rnative.test( docElem.contains )) 
 		{contains =function( a, b ) {
-			 if(a.nodeType === 9)  {var adown =a.documentElement} {var adown = a}
+			 if(a.nodeType === 9)  {var adown =a.documentElement;} {var adown = a;}
 				var bup = b && b.parentNode;
 			return a === bup || !!( bup && bup.nodeType === 1 && (
 				adown.contains ?
@@ -1456,11 +1452,11 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 			// Maintain original order
 			 if(sortInput)
-				{return( indexOf( sortInput, a ) - indexOf( sortInput, b ) )} else{
+				{return( indexOf( sortInput, a ) - indexOf( sortInput, b ) );} else{
 				return 0;}
 		}
 
-		if(compare & 4)  {return -1} else {return  1;};
+		if(compare & 4)  {return -1;} else {return  1;}
 	}} else {
 		sortOrder = function( a, b ) {
 		// Exit early if the nodes are identical
@@ -1478,12 +1474,12 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 		// Parentless nodes are either documents or disconnected
 		if ( !aup || !bup ) {
-			 if(a === document) {return -1} else{
-				if (b === document ) {return 1} else{
-				if (aup) {return -1} else{
-				if(bup)  {return 1} else{
+			 if(a === document) {return -1;} else{
+				if (b === document ) {return 1;} else{
+				if (aup) {return -1;} else{
+				if(bup)  {return 1;} else{
 				if(sortInput) {
-				( indexOf( sortInput, a ) - indexOf( sortInput, b ) )} else{
+				( indexOf( sortInput, a ) - indexOf( sortInput, b ) );} else{
 				return 0;}}}}}
 
 		// If the nodes are siblings, we can do a quick check
@@ -1503,17 +1499,17 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 		// Walk down the tree looking for a discrepancy
 		while ( ap[i] === bp[i] ) {
-			i = i + 1;
+			i=i+1;
 		}
 
-		if (i) {
+		return i ?
 			// Do a sibling check if the nodes have a common ancestor
-			return siblingCheck( ap[i], bp[i] )} else{
+			siblingCheck( ap[i], bp[i] ) :
 
 			// Otherwise nodes in our document sort first
-			if (ap[i] === preferredDoc) {return  -1} else{
-			if (bp[i] === preferredDoc)  {return 1} else{
-				return 0;}}}
+			ap[i] === preferredDoc ? -1 :
+			bp[i] === preferredDoc ? 1 :
+			0;
 	};}
 
 	return document;
@@ -1532,9 +1528,9 @@ Sizzle.matchesSelector = function( elem, expr ) {
 	// Make sure that attribute selectors are quoted
 	expr = expr.replace( rattributeQuotes, "='$1']" );
 
-	if ( support.matchesSelector && documentIsHTML &&  
-		!compilerCache[ expr + " " ] && 
-		( !rbuggyMatches || !rbuggyMatches.test( expr ) ) && 
+	if ( support.matchesSelector && documentIsHTML &&
+		!compilerCache[ expr + " " ] &&
+		( !rbuggyMatches || !rbuggyMatches.test( expr ) ) &&
 		( !rbuggyQSA     || !rbuggyQSA.test( expr ) ) ) {
 
 		try {
@@ -1567,19 +1563,19 @@ Sizzle.attr = function( elem, name ) {
 		setDocument( elem );
 	}
 
-	var fn = Expr.attrHandle[ name.toLowerCase() ], val
+	var fn = Expr.attrHandle[ name.toLowerCase() ],
 		// Don't get fooled by Object.prototype properties (jQuery #13807)
-		if(fn && hasOwn.call( Expr.attrHandle, name.toLowerCase() )) {
-				val = fn( elem, name, !documentIsHTML )}else {
-					 val = undefined;}
+		val = fn && hasOwn.call( Expr.attrHandle, name.toLowerCase() ) ?
+			fn( elem, name, !documentIsHTML ) :
+			undefined;
 
-	 if(val !== undefined)
-			 {return val} else{
-		if(support.attributes || !documentIsHTML) 
-			{return elem.getAttribute( name )} else {
-			if((val === elem.getAttributeNode(name)) && val.specified) 
-				{return val.value} else{
-					return null;}}}
+	return val !== undefined ?
+		val :
+		support.attributes || !documentIsHTML ?
+			elem.getAttribute( name ) :
+			(val === elem.getAttributeNode(name)) && val.specified ?
+				val.value :
+				null;
 };
 
 Sizzle.escape = function( sel ) {
@@ -1613,7 +1609,7 @@ Sizzle.uniqueSort = function( results ) {
 			}
 		}
 		while ( j ) {
-			j = j - 1;
+			j=j-1;
 			results.splice( duplicates[ j ], 1 );
 		}
 	}
@@ -1716,7 +1712,7 @@ Expr = Sizzle.selectors = {
 
 				// numeric x and y parameters for Expr.filter.CHILD
 				// remember that false/true cast respectively to 0/1
-				 if(+ match[4]) {match[4] = match[5] + (match[6] || 1) }else{match[4] = 2 * ( match[3] === "even" || match[3] === "odd"  );}
+				match[4] = +( match[4] ? match[5] + (match[6] || 1) : 2 * ( match[3] === "even" || match[3] === "odd" ) );
 				match[5] = +( ( match[7] + match[8] ) || match[3] === "odd" );
 
 			// other types prohibit arguments
@@ -1760,11 +1756,11 @@ Expr = Sizzle.selectors = {
 
 		"TAG": function( nodeNameSelector ) {
 			var nodeName = nodeNameSelector.replace( runescape, funescape ).toLowerCase();
-			if( nodeNameSelector === "*"){
-				return function() { return true; } }else{
-					return function( elem ) {
+			return nodeNameSelector === "*" ?
+				function() { return true; } :
+				function( elem ) {
 					return elem.nodeName && elem.nodeName.toLowerCase() === nodeName;
-				};}
+				};
 		},
 
 		"CLASS": function( className ) {
@@ -1790,14 +1786,14 @@ Expr = Sizzle.selectors = {
 
 				result += "";
 
-				if (operator === "="  ){ return  result === check } else {  if(
-						operator === "!="  ){ return  result !== check } else {  if(
-						operator === "^="  ){ return  check && result.indexOf( check ) === 0 } else {  if(
-						operator === "*="  ){ return  check && result.indexOf( check ) > -1 } else {  if(
-						operator === "$="  ){ return  check && result.slice( -check.length ) === check } else {  if(
-						operator === "~="  ){ return  ( " " + result.replace( rwhitespace, " " ) + " " ).indexOf( check ) > -1 } else {  if(
-						operator === "|="  ){ return  result === check || result.slice( 0, check.length + 1 ) === check + "-" } else {  return
-						false;}}}}}}}
+				return operator === "=" ? result === check :
+					operator === "!=" ? result !== check :
+					operator === "^=" ? check && result.indexOf( check ) === 0 :
+					operator === "*=" ? check && result.indexOf( check ) > -1 :
+					operator === "$=" ? check && result.slice( -check.length ) === check :
+					operator === "~=" ? ( " " + result.replace( rwhitespace, " " ) + " " ).indexOf( check ) > -1 :
+					operator === "|=" ? result === check || result.slice( 0, check.length + 1 ) === check + "-" :
+					false;
 			};
 		},
 
@@ -1806,16 +1802,16 @@ Expr = Sizzle.selectors = {
 				forward = type.slice( -4 ) !== "last",
 				ofType = what === "of-type";
 
-			 if(first === 1 && last === 0) {
+			return first === 1 && last === 0 ?
 
 				// Shortcut for :nth-*(n)
-				 return function( elem ) {
+				function( elem ) {
 					return !!elem.parentNode;
-				} }else{
+				} :
 
-					return function( elem, context, xml ) {
-					var cache, uniqueCache, outerCache, node, nodeIndex, start, dir
-						if(simple !== forward ) {dir =  "nextSibling" } else { dir =  "previousSibling",
+				function( elem, context, xml ) {
+					var cache, uniqueCache, outerCache, node, nodeIndex, start,
+						dir = simple !== forward ? "nextSibling" : "previousSibling",
 						parent = elem.parentNode,
 						name = ofType && elem.nodeName.toLowerCase(),
 						useCache = !xml && !ofType,
@@ -1841,7 +1837,7 @@ Expr = Sizzle.selectors = {
 							return true;
 						}
 
-						  if(forward) {start = parent.firstChild} else{start = parent.lastChild} 
+						start = [ forward ? parent.firstChild : parent.lastChild ];
 
 						// non-xml :nth-child(...) stores cache data on `parent`
 						if ( forward && useCache ) {
@@ -1931,7 +1927,7 @@ Expr = Sizzle.selectors = {
 						diff -= last;
 						return diff === first || ( diff % first === 0 && diff / first >= 0 );
 					}
-				};}}
+				};
 		},
 
 		"PSEUDO": function( pseudo, argument ) {
@@ -1990,9 +1986,10 @@ Expr = Sizzle.selectors = {
 						i = seed.length;
 
 					// Match elements unmatched by `matcher`
-					while ( i-- ) {
+					while ( i > 0 ) {
 						if ( (elem === unmatched[i]) ) {
 							seed[i] = !(matches[i] = elem);
+							i = i - 1;
 						}
 					}
 				}) :
@@ -2154,7 +2151,7 @@ Expr = Sizzle.selectors = {
 
 		"lt": createPositionalPseudo(function( matchIndexes, length, argument ) {
 			var i = argument < 0 ? argument + length : argument;
-			for ( ; --i >= 0; ) {
+			for ( ; i >= 0; i -= 1) {
 				matchIndexes.push( i );
 			}
 			return matchIndexes;
@@ -4643,7 +4640,7 @@ function showHide( elements, show ) {
 	for ( ; index < length; index++ ) {
 		elem = elements[ index ];
 		if ( !elem.style ) {
-			continue;
+			
 		}
 
 		display = elem.style.display;
@@ -4837,7 +4834,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 			if ( ignored ) {
 				ignored.push( elem );
 			}
-			continue;
+			
 		}
 
 		contains = jQuery.contains( elem.ownerDocument, elem );
@@ -5038,9 +5035,7 @@ jQuery.event = {
 			namespaces = ( tmp[ 2 ] || "" ).split( "." ).sort();
 
 			// There *must* be a type, no attaching namespace-only handlers
-			if ( !type ) {
-				continue;
-			}
+			
 
 			// If event changes its type, use the special event handlers for the changed type
 			special = jQuery.event.special[ type ] || {};
@@ -5124,7 +5119,7 @@ jQuery.event = {
 				for ( type in events ) {
 					jQuery.event.remove( elem, type + types[ t ], handler, selector, true );
 				}
-				continue;
+		
 			}
 
 			special = jQuery.event.special[ type ] || {};
@@ -5135,7 +5130,7 @@ jQuery.event = {
 
 			// Remove matching events
 			origCount = j = handlers.length;
-			while ( j-- ) {
+			while ( j > 0 ) {
 				handleObj = handlers[ j ];
 
 				if ( ( mappedTypes || origType === handleObj.origType ) &&
@@ -5146,12 +5141,13 @@ jQuery.event = {
 					handlers.splice( j, 1 );
 
 					if ( handleObj.selector ) {
-						handlers.delegateCount--;
+						handlers.delegateCount=handlers.delegateCount-1;
 					}
 					if ( special.remove ) {
 						special.remove.call( elem, handleObj );
 					}
 				}
+				j = j-1;
 			}
 
 			// Remove generic event handler if we removed something and no more handlers exist
@@ -6867,9 +6863,7 @@ function defaultPrefilter( elem, props, opts ) {
 					hidden = true;
 
 				// Ignore all other no-op show/hide data
-				} else {
-					continue;
-				}
+				} 
 			}
 			orig[ prop ] = dataShow && dataShow[ prop ] || jQuery.style( elem, prop );
 		}
